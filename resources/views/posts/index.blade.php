@@ -29,7 +29,7 @@
                 <td>{{$value->title}}</td>
                 <td>{{Str::limit($value->description, 100 )}}</td>
                 <td>
-                    <form action="{{ route('posts.destroy', $value->id) }}">
+                    <form action="{{ route('posts.destroy', $value->id) }}" method="post">
                         <a href="{{ route('posts.show', $value->id)}}" class="btn btn-primary">Show</a>
                         <a href="{{ route('posts.edit', $value->id)}}" class="btn btn-info">Edit</a>
                         @csrf
@@ -39,6 +39,9 @@
                 </td>
             </tr>
         @endforeach
+
     </table>
+
+    {!! $data->links() !!}
 
 @endsection
