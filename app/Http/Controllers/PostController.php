@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+
 class PostController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $data = Post::latest()->paginate(5);
+        return view('posts.index',compact('data'))
+                ->with('i',(request()->input('page',1)-1) * 5);
     }
 
     /**
@@ -25,6 +28,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('posts.create');
     }
 
     /**
@@ -36,6 +40,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required'
+
+        ]);
+
+        Post::create($request->all());
+
+        return redirect()->route('posts.index')
+                         ->with('success','บันทึกเสร็จ');
+
     }
 
     /**
@@ -47,6 +62,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        return view('posts.show',compact('post'));
     }
 
     /**
@@ -58,6 +74,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return view('posts.edit',compact('post'));
     }
 
     /**
@@ -70,6 +87,15 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required'
+        ]);
+
+        $post->update($request->all());
+        return redirect()->route('posts.index')
+                        ->with('success', 'อัพเดทสำเร็จ');
+
     }
 
     /**
@@ -81,5 +107,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->delete();
+        return redirect()->route('posts.index')
+                        ->with('success', 'ลบสำเร็จ');
     }
 }
