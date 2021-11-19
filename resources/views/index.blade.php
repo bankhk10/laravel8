@@ -14,5 +14,6 @@
     <p>how to main</p>
     <p>how to test1</p>
     <p>how to potเอง</p>
+    <p>how to แพรไง</p>
 
 @endsection
