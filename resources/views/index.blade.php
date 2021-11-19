@@ -10,7 +10,7 @@
 
 @section('content')
     <h1>hi {{$name}}</h1>
-    <p>how to bank</p>
+    <p>how to bank1</p>
 
 
 @endsection
