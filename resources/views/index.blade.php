@@ -15,6 +15,8 @@
     <p>how to bank2</p>
     <p>how to potเอง</p>
     <p>how to แพรไง</p>
+    <p>how to bank</p>
+
 
 
 
