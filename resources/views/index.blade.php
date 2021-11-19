@@ -13,6 +13,7 @@
     <p>how to bank1</p>
 
     <p>how to bank2</p>
+    <p>how to potเอง</p>
 
 
 
