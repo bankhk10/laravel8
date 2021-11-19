@@ -11,12 +11,8 @@
 @section('content')
     <h1>hi {{$name}}</h1>
     <p>how to bank1</p>
-
-    <p>how to bank2</p>
+    <p>how to main</p>
+    <p>how to test1</p>
     <p>how to potเอง</p>
-
-
-
-
 
 @endsection
